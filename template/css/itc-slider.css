@@ -1,0 +1,128 @@
+/*!
+* chiefSlider
+*   site: https://itchief.ru/javascript/slider
+*   github: https://github.com/itchief/ui-components
+*
+* Copyright 2018-2021 Alexander Maltsev
+* Licensed under MIT (https://github.com/itchief/ui-components/blob/master/LICENSE)
+*/
+
+.slider {
+  position: relative;
+}
+
+.slider__container {
+
+}
+
+.slider__wrapper {
+  overflow: hidden;
+}
+
+.slider__items {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slider_disable-transition {
+  transition: none;
+}
+
+.slider__item {
+  flex: 0 0 100%;
+  max-width: 100%;
+  user-select: none;
+}
+
+/* кнопки влево и вправо */
+
+.slider__control {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+  background: rgb(0 0 0 / 20%);
+  border: none;
+  transform: translateY(-33.333333333%);
+  cursor: pointer;
+}
+
+.slider__control_hide {
+  display: block;
+}
+
+.slider__control[data-slide="prev"] {
+  left: -1.75%;
+}
+
+.slider__control[data-slide="next"] {
+  right: -2%;
+}
+
+.slider__control:hover {
+  color: #fff;
+  text-decoration: none;
+  background: rgb(0 0 0 / 30%);
+  outline: 0;
+}
+
+.slider__control::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.slider__control[data-slide="prev"]::before {
+  background-image: url(../img/left__control.png);
+}
+
+.slider__control[data-slide="next"]::before {
+  background-image: url(../img/right__control.png);
+}
+
+/* индикаторы */
+
+.slider__indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  margin-right: 15%;
+  margin-bottom: 0;
+  margin-left: 15%;
+  padding-left: 0;
+  list-style: none;
+}
+
+.slider__indicators li {
+  flex: 0 1 auto;
+  box-sizing: content-box;
+  width: 8px;
+  height: 8px;
+  margin-right: 8.5px;
+  margin-left: 8.5px;
+  text-indent: -999px;
+  background-color: rgb(255 255 255 / 50%);
+  background-clip: padding-box;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  cursor: pointer;
+    border: solid #C2C8CD;
+    border-radius:100px;
+}
+
+.slider__indicators li.active {
+  background-color: rgb(255 255 255 / 90%);
+}
